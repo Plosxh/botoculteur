@@ -24,7 +24,7 @@ def main():
             if counter != 1:
                 ville = request_ville(row[0])
                 try:
-                    if ville != "":
+                    if ville:
                         ville_json = json.dumps(ville)
                         response = sqs.send_message(QueueUrl=queue["QueueUrl"], MessageBody=ville_json, DelaySeconds=123)
                     else:

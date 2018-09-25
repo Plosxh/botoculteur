@@ -25,11 +25,11 @@ def tweet(event, context):
                       consumer_secret='CONSUMER-SECRET',  # BotAPiKey
                       access_token_key='BOT-TOKEN',  # YourApiKey
                       access_token_secret='BOT-TOKEN-SECRET')  # YourApiKey
-    villeJson = json.loads(response["Messages"][0]["Body"])
+    ville_json = json.loads(response["Messages"][0]["Body"])
     wiki_wiki = wikipediaapi.Wikipedia('fr')
-    page_py = wiki_wiki.page(villeJson["nom"])
-    to_display = "Nom: " + villeJson["nom"] + "\n" + "Code Postal: " + villeJson["codesPostaux"][0] + "\n" "Population: " + str(
-        villeJson["population"]) + "\n \n"
+    page_py = wiki_wiki.page(ville_json["nom"])
+    to_display = "Nom: " + ville_json["nom"] + "\n" + "Code Postal: " + ville_json["codesPostaux"][0] + "\n" "Population: " + str(
+        ville_json["population"]) + "\n \n"
 
     to_display += page_py.summary[0:(280 - len(to_display) - len(page_py.fullurl) - 5)] + "...\n" + page_py.fullurl
     status = api.PostUpdate(to_display)
