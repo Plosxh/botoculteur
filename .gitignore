@@ -1,0 +1,7 @@
+./insee.csv
+./laposte_commnouv.csv
+./serverless.yml
+./venv/*
+./.serverless/*
+./villes.iml
+./requirements.txt
